@@ -1,0 +1,70 @@
+entity SystemUser {	
+    login String,
+    logo String,
+  	password String,
+    deleted Boolean
+}
+
+entity Admin {
+
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Client {	
+	name String,
+	address String,
+	phone String
+}
+
+entity Doctor {
+	name String,
+	specialization String,
+	phone String,
+    age Integer
+}
+
+entity Appointment {	
+	date Date,    
+    doctorId Integer, 
+    petId Integer,
+    comment String
+    status String
+}
+  
+entity Pet {
+	name String,
+    clientId Integer,
+    age Integer,
+    species String
+}
+
+relationship OneToMany {
+	Client{pet} to Pet
+}
+
+//relationship ManyToOne{
+//	Appointment{pet} to Pet
+//}
+
+relationship OneToMany {
+	Pet{appointment} to Appointment
+}
+
+relationship OneToMany {
+	Doctor{appointment} to Appointment
+}
+
+relationship OneToOne {
+	SystemUser{doctor} to Doctor
+}
+
+relationship OneToOne {
+	SystemUser{doctor} to Client
+}
+
+relationship OneToOne {
+	SystemUser{doctor} to Admin
+}
+
+
