@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-appointment-heading">Create or edit a Appointment</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!appointment.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="appointment.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="appointment.date"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_doctorId">Doctor Id</label>
+                    <input type="number" class="form-control" name="doctorId" id="field_doctorId"
+                        [(ngModel)]="appointment.doctorId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_petId">Pet Id</label>
+                    <input type="number" class="form-control" name="petId" id="field_petId"
+                        [(ngModel)]="appointment.petId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comment">Comment</label>
+                    <input type="text" class="form-control" name="comment" id="field_comment"
+                        [(ngModel)]="appointment.comment" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="appointment.status" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_doctor">Doctor</label>
+                    <select class="form-control" id="field_doctor" name="doctor" [(ngModel)]="appointment.doctor" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="doctorOption.id === appointment.doctor?.id ? appointment.doctor : doctorOption" *ngFor="let doctorOption of doctors; trackBy: trackDoctorById">{{doctorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pet">Pet</label>
+                    <select class="form-control" id="field_pet" name="pet" [(ngModel)]="appointment.pet" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="petOption.id === appointment.pet?.id ? appointment.pet : petOption" *ngFor="let petOption of pets; trackBy: trackPetById">{{petOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

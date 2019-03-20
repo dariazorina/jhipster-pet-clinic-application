@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SystemUser.
+    -->
+    <changeSet id="20190320163749-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="doctor_id"
+                                 baseTableName="system_user"
+                                 constraintName="fk_system_user_doctor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="doctor"/>
+
+        <addForeignKeyConstraint baseColumnNames="doctor_id"
+                                 baseTableName="system_user"
+                                 constraintName="fk_system_user_doctor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+        <addForeignKeyConstraint baseColumnNames="doctor_id"
+                                 baseTableName="system_user"
+                                 constraintName="fk_system_user_doctor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="admin"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,44 @@
+{
+    "name": "Pet",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "clientId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "species",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appointment",
+            "otherEntityRelationshipName": "pet",
+            "relationshipName": "appointment"
+        }
+    ],
+    "changelogDate": "20190320163754",
+    "entityTableName": "pet",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
