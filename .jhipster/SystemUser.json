@@ -1,0 +1,56 @@
+{
+    "name": "SystemUser",
+    "fields": [
+        {
+            "fieldName": "login",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "doctor",
+            "otherEntityRelationshipName": "systemUser",
+            "relationshipName": "doctor",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "systemUser",
+            "relationshipName": "doctor",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "admin",
+            "otherEntityRelationshipName": "systemUser",
+            "relationshipName": "doctor",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190320163749",
+    "entityTableName": "system_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

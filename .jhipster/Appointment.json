@@ -1,0 +1,48 @@
+{
+    "name": "Appointment",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "doctorId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "petId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "doctor",
+            "otherEntityName": "doctor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "pet",
+            "otherEntityName": "pet",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190320163753",
+    "entityTableName": "appointment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

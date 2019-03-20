@@ -1,0 +1,38 @@
+{
+    "name": "Doctor",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "specialization",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "appointment",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "appointment"
+        }
+    ],
+    "changelogDate": "20190320163752",
+    "entityTableName": "doctor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
